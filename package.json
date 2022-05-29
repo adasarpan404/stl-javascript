@@ -10,5 +10,12 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^28.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adasarpan404/stl-javascript"
+  },
+  "bugs": {
+    "url": "https://github.com/adasarpan404/stl-javascript/issues"
   }
 }
