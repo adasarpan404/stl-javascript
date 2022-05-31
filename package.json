@@ -1,13 +1,13 @@
 {
   "name": "stl-javascript",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "I try to create easy way to use stack, queue and some data structure in Javascript",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "author": "Arpan Das",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "jest": "^28.1.0"
   },

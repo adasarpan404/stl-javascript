@@ -10,7 +10,10 @@ Use the package manager [npm](https://www.npmjs.com/) to install STL-JAVASCRIPT.
 ```bash
 npm install stl-javascript
 ```
-
+or you can use [yarn](https://yarnpkg.com/)
+```bash
+yarn add stl-javascript
+```
 ## Usage
 ### Stack
 A stack is a conceptual structure that combines a set of similarities and is based on the principle of end-to-end (LIFO). It is a type of invisible, commonly used data with two main functions, push and pop. Push and pop are made on the very top, which has just been added to the stack. The push function adds an object to the stack while the pop function removes the element from the surface. The stack concept is used to organize and organize memory on computers.
