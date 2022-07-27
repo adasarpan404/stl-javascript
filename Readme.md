@@ -188,6 +188,16 @@ console.log("preorder traversal");
 BST.preorder(root);
 
 ```
+
+## Application
+### PostFix Conversion 
+
+use the following code to get the answer of postfix expression
+```javascript 
+const {postFixConversion} = require('stl-javascript/Uses/PostfixConversion')
+console.log(postFixConversion("235*+8-") //answer will be 9
+console.log(postFixConversion(23*+)) //it will return cannot perform postfix expression
+```
 ## Contributing 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
