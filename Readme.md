@@ -189,6 +189,45 @@ BST.preorder(root);
 
 ```
 
+### Segment Tree
+Segment tree is a data structure that stores the information about an array in the form of tree, where each node of the tree represents a certain range of the array and carries the answer of that range. This allows one to answer range queries efficiently and at the same time, carry out faster modifications in the array. 
+
+The root node of the segment tree represents the full range of the array whereas the leaf nodes represent individual elements. A node's left child represents the left half of that node's range whereas its right child represents the right half of the node's range. In this implementation of the segment tree, any node that represents a range `l` to `r` will carry the sum of the range `l` to `r`.
+
+The update function can be used to update the value at a particular index of the array. The query function can be used to obtain the sum of the range of all values from `start` index to `end` index, both included.
+
+```js
+const {SegmentTree} = require('stl-javascript/AdvancedDs/SegmentTree')
+let arr = [15, 25, 10, 8, 22]
+let segmentTree = new SegmentTree(arr);
+// The segment tree generated for this array
+//          80
+//         /  \
+//        50   30
+//       / \   / \
+//      40 10 8  22
+//     / \    
+//    15  25
+
+// Printing the sum of the value from the index 1 to 3, n this case, it is 43
+console.log(segmentTree.query(1,3))
+
+// Updating the value at index 1, setting it to 52
+segmentTree.update(1,52)
+
+// Updated segment tree
+//          107
+//         /  \
+//        77   30
+//       / \   / \
+//      67 10 8  22
+//     / \    
+//    15  52
+
+// Printing the updated sum for the range 1 to 3, now the sum will be 70
+console.log(segmentTree.query(1,3))
+```
+
 ## Application
 ### PostFix Conversion 
 
