@@ -1,60 +1,60 @@
-class stack{
-    constructor(){
-        this.items= []
+class stack {
+    constructor() {
+        this.items = []
     }
-    push(element){
+    push(element) {
         this.items.push(element)
     }
-    pop(){
-        if(this.items.length === 0){
+    pop() {
+        if (this.items.length === 0) {
             return "underflow"
         }
         return this.items.pop()
     }
-    peek(){
-        if(this.items.length === 0){
+    peek() {
+        if (this.items.length === 0) {
             return 'No Elements'
         }
         return this.items[this.items.length - 1]
     }
-    printStack(){
+    printStack() {
         var str = "";
         for (var i = 0; i < this.items.length; i++)
             str += this.items[i] + " ";
         return str;
     }
-    isEmpty(){
+    isEmpty() {
         return this.items.length === 0;
     }
 }
 
 
-class queue{
-    constructor(){
-        this.items= [];
+class queue {
+    constructor() {
+        this.items = [];
     }
-    enqueue(element){
+    enqueue(element) {
         this.items.push(element)
     }
-    dequeue(){
-        if(this.items.length === 0)
+    dequeue() {
+        if (this.items.length === 0)
             return "underflow"
         return this.items.shift();
     }
-    isEmpty(){
+    isEmpty() {
         return this.items.length === 0;
     }
-    front(){
-        if(this.isEmpty())
+    front() {
+        if (this.isEmpty())
             return "No elements in Queue";
         return this.items[0];
     }
-    printQueue(){
+    printQueue() {
         var str = "";
-        for(var i = 0; i < this.items.length; i++)
-            str += this.items[i] +" ";
+        for (var i = 0; i < this.items.length; i++)
+            str += this.items[i] + " ";
         return str;
     }
 }
 
-module.exports = {stack, queue}
+module.exports = { stack, queue }

@@ -1,11 +1,11 @@
-const {PriorityQueue} = require('../AdvancedDs/Priority_Queue')
+const { PriorityQueue } = require('../AdvancedDs/Priority_Queue')
 
-test('Priority Queue testing started, underflow test', ()=>{
+test('Priority Queue testing started, underflow test', () => {
     const PriorityQueue_example = new PriorityQueue();
     expect(PriorityQueue_example.dequeue()).toBe('underflow');
 })
 
-test('enqueue and print priority queue is working fine', ()=>{
+test('enqueue and print priority queue is working fine', () => {
     const PriorityQueue_example = new PriorityQueue();
     expect(PriorityQueue_example.isEmpty()).toBe(true)
     PriorityQueue_example.enqueue('Ram', 1);
@@ -14,7 +14,7 @@ test('enqueue and print priority queue is working fine', ()=>{
     expect(PriorityQueue_example.printPQueue()).toBe('Ram Mohit Rohit ')
 })
 
-test('dequeue is working fine', ()=>{
+test('dequeue is working fine', () => {
     const PriorityQueue_example = new PriorityQueue();
     expect(PriorityQueue_example.isEmpty()).toBe(true)
     PriorityQueue_example.enqueue('Ram', 1);
@@ -24,7 +24,7 @@ test('dequeue is working fine', ()=>{
     expect(PriorityQueue_example.dequeue().element).toBe('Ram')
 })
 
-test('front and rear test', ()=>{
+test('front and rear test', () => {
     const PriorityQueue_example = new PriorityQueue();
     PriorityQueue_example.enqueue('Ram', 1);
     PriorityQueue_example.enqueue('Rohit', 2)
