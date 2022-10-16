@@ -1,4 +1,4 @@
-const {stack} = require('../index')
+const { stack } = require('../index')
 
 const stack_example = new stack();
 
