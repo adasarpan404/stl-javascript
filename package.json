@@ -1,6 +1,6 @@
 {
   "name": "stl-javascript",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "I try to create easy way to use stack, queue and some data structure in Javascript",
   "main": "index.js",
   "scripts": {
