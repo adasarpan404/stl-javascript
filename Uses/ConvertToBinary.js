@@ -1,6 +1,6 @@
 const { queue } = require('../index')
 
-function generateBinary(n) {
+const generateBinary = (n) => {
     var q = new queue();
     var converted = [];
     q.enqueue('1');
@@ -12,5 +12,8 @@ function generateBinary(n) {
     }
     return converted[converted.length - 1];
 }
+
+
+
 
 exports.generateBinary = generateBinary;
