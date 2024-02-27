@@ -1,6 +1,4 @@
-
-
-const { postFixConversion } = require('../Uses/PostfixConversion')
+const { postFixConversion } = require('../uses/postfixConversion')
 
 test('Binary Generated', () => {
     expect(postFixConversion("235*+8-")).toBe(9)

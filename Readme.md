@@ -232,7 +232,7 @@ console.log(segmentTree.query(1,3))
 
 use the following code to get the answer of postfix expression
 ```javascript 
-const {postFixConversion} = require('stl-javascript/Uses/PostfixConversion')
+const {postFixConversion} = require('stl-javascript/uses/postfixConversion')
 console.log(postFixConversion("235*+8-") //answer will be 9
 console.log(postFixConversion(23*+)) //it will return cannot perform postfix expression
 ```

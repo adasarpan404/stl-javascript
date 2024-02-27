@@ -1,4 +1,4 @@
-const { generateBinary } = require('../Uses/ConvertToBinary')
+const { generateBinary } = require('../uses/convertToBinary')
 
 test('Binary Conversion Test', () => {
     expect((generateBinary(5))).toBe('101')
