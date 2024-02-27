@@ -68,7 +68,7 @@ Every item has a priority associated with it.
 An element with high priority is dequeued before an element with low priority.
 If two elements have the same priority, they are served according to their order in the queue.
 ```javascript
-const {PriorityQueue} = require('stl-javascript/AdvancedDs/Priority_Queue')
+const {PriorityQueue} = require('stl-javascript/nonLinear/priorityQueue')
 
 const PriorityQueue_example = new PriorityQueue();
 
@@ -103,7 +103,7 @@ Binary Search Tree is a node-based binary tree data structure which has the foll
 ```javascript 
 
 // create an object for the BinarySearchTree
-const {BinarySearchTree} = require('stl-javascript/AdvancedDs/BinarySearchTree')
+const {BinarySearchTree} = require('stl-javascript/nonLinear/binarySearchTree')
 var BST = new BinarySearchTree();
  
 // Inserting nodes to the BinarySearchTree
@@ -196,7 +196,7 @@ The root node of the segment tree represents the full range of the array whereas
 The update function can be used to update the value at a particular index of the array. The query function can be used to obtain the sum of the range of all values from `start` index to `end` index, both included.
 
 ```js
-const {SegmentTree} = require('stl-javascript/AdvancedDs/SegmentTree')
+const {SegmentTree} = require('stl-javascript/nonLinear/segmentTree')
 let arr = [15, 25, 10, 8, 22]
 let segmentTree = new SegmentTree(arr);
 // The segment tree generated for this array

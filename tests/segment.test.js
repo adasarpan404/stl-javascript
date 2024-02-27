@@ -1,4 +1,4 @@
-const { SegmentTree } = require("../AdvancedDs/SegmentTree");
+const { SegmentTree } = require("../nonLinear/segmentTree");
 const arr = [15, 25, 10, 7, 22, 17, 13, 5, 9, 27]
 
 test("Updation testing", () => {
