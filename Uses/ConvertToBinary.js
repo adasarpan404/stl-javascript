@@ -13,7 +13,4 @@ const generateBinary = (n) => {
     return converted[converted.length - 1];
 }
 
-
-
-
 exports.generateBinary = generateBinary;
