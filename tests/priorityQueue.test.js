@@ -1,4 +1,4 @@
-const { PriorityQueue } = require('../AdvancedDs/Priority_Queue')
+const { PriorityQueue } = require('../nonLinear/priorityQueue')
 
 test('Priority Queue testing started, underflow test', () => {
     const PriorityQueue_example = new PriorityQueue();

@@ -1,4 +1,4 @@
-const { BinarySearchTree } = require('../AdvancedDs/BinarySearchTree')
+const { BinarySearchTree } = require('../nonLinear/binarySearchTree')
 const Array = [15, 25, 10, 7, 22, 17, 13, 5, 9, 27]
 test('BST testing started', () => {
     const BST = new BinarySearchTree();

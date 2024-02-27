@@ -1,4 +1,4 @@
-const { CircularQueue } = require('../AdvancedDs/Circular_queue')
+const { CircularQueue } = require('../nonLinear/circularQueue')
 
 test('Circular Queue Testing Started', () => {
     const CircularQueue_example = new CircularQueue(3);
