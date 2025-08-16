@@ -19,3 +19,14 @@ test('BST inorder, postorder, and preorder testing', () => {
     expect(BST.postorder(node)).toStrictEqual([5, 9, 7, 13, 10, 17, 22, 27, 25, 15])
     expect(BST.preorder(node)).toStrictEqual([15, 10, 7, 5, 9, 13, 25, 22, 17, 27])
 })
+
+test('BST search testing', () => {
+    const BST = new BinarySearchTree();
+    for (var i = 0; i < Array.length; i++) {
+        BST.insert(Array[i])
+    }
+    console.log(BST.search(BST.getRootNode(), 10))
+    expect(BST.search(BST.getRootNode(), 10).data).toBe(10)
+    expect(BST.search(BST.getRootNode(), 100)).toBeNull()
+
+})
