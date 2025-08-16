@@ -17,3 +17,28 @@ test("Query testing", () => {
     expect(segTree.query(0, 1)).toBe(50)
     expect(segTree.query(0, 0)).toBe(25)
 })
+
+test('single element tree works for query and update', () => {
+    const st = new SegmentTree([7])
+    expect(st.query(0, 0)).toBe(7)
+    st.update(0, 3)
+    expect(st.query(0, 0)).toBe(3)
+})
+
+test('handles negative and mixed values correctly', () => {
+    const st = new SegmentTree([-1, -2, 5])
+    expect(st.query(0, 2)).toBe(2) // -1 + -2 + 5
+    expect(st.query(0, 1)).toBe(-3)
+})
+
+test('query with start > end returns 0 (out of range)', () => {
+    const st = new SegmentTree([1, 2, 3])
+    expect(st.query(2, 1)).toBe(0)
+})
+
+test('constructor clones input array (mutating original does not affect tree)', () => {
+    const input = [1, 2, 3]
+    const st = new SegmentTree(input)
+    input[0] = 100
+    expect(st.query(0, 2)).toBe(6)
+})

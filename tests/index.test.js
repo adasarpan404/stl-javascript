@@ -1,13 +1,9 @@
 const { stack, queue } = require('../index')
 
-
-
 test('underflow', () => {
     const stack_example = new stack();
     expect(stack_example.pop()).toBe('underflow');
 })
-
-
 
 test('print stack is working', () => {
     const stack_example = new stack();

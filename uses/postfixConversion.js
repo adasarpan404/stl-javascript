@@ -32,7 +32,9 @@ function postFixEvaluation(exp) {
             }
         }
     }
-    return s.pop();
+    const result = s.pop();
+    if (result === "underflow") return "Can't perform postfix evaluation";
+    return result;
 }
 
 exports.postFixConversion = postFixEvaluation;
