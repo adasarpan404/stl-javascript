@@ -1,5 +1,6 @@
 const { BinarySearchTree } = require('../nonLinear/binarySearchTree')
 const Array = [15, 25, 10, 7, 22, 17, 13, 5, 9, 27]
+
 test('BST testing started', () => {
     const BST = new BinarySearchTree();
     for (var i = 0; i < Array.length; i++) {
@@ -29,4 +30,24 @@ test('BST search testing', () => {
     expect(BST.search(BST.getRootNode(), 10).data).toBe(10)
     expect(BST.search(BST.getRootNode(), 100)).toBeNull()
 
+})
+
+test('BST remove testing', () => {
+    const BST = new BinarySearchTree();
+    for (var i = 0; i < Array.length; i++) {
+        BST.insert(Array[i])
+    }
+    BST.remove(10);
+    expect(BST.search(BST.getRootNode(), 10)).toBeNull();
+    expect(BST.inorder(BST.getRootNode())).toStrictEqual([5, 7, 9, 13, 15, 17, 22, 25, 27]);
+})
+
+test('BST remove root node testing', () => {
+    const BST = new BinarySearchTree();
+    for (var i = 0; i < Array.length; i++) {
+        BST.insert(Array[i])
+    }
+    BST.remove(15);
+    expect(BST.search(BST.getRootNode(), 15)).toBeNull();
+    expect(BST.inorder(BST.getRootNode())).toStrictEqual([5, 7, 9, 10, 13, 17, 22, 25, 27]);
 })
