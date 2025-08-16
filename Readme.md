@@ -59,173 +59,65 @@ console.log(queue_example.front()) //this will return 20 because 20 is at the fr
 console.log(queue_example.printQueue()) // this will return "20 30 ". 
 // this function is used for printing the queue
 ```
+
+## Non-Linear Data Structures
+
+This library also includes several non-linear data structures located under the `nonLinear` folder. These modules are not exported from the package root, so require them with the full path shown below.
+
 ### Priority Queue
-Priority Queue is an abstract data type, which is similar to a queue, however, in the priority queue, every element has some priority. The priority of the elements in a priority queue determines the order in which elements are removed from the priority queue. Therefore all the elements are either arranged in an ascending or descending order.
+A priority queue stores elements along with a priority value; lower numeric priority means higher urgency in this implementation.
 
-So, a priority Queue is an extension of the queue with the following properties. 
-
-Every item has a priority associated with it.
-An element with high priority is dequeued before an element with low priority.
-If two elements have the same priority, they are served according to their order in the queue.
 ```javascript
-const {PriorityQueue} = require('stl-javascript/nonLinear/priorityQueue')
+const { PriorityQueue } = require('stl-javascript/nonLinear/priorityQueue')
+const pq = new PriorityQueue()
 
-const PriorityQueue_example = new PriorityQueue();
-
-PriorityQueue_example.enqueue('Ram', 1);
-PriorityQueue_example.enqueue('Rohit', 3);
-PriorityQueue_example.enqueue('Mohit', 2);
-
-console.log(PriorityQueue_example.printPQueue()) // this will print "Ram Mohit Rohit " , elements are ordered due to priority
-
-console.log(PriorityQueue_example.isEmpty()) // this print false
-// this function will be used for checking queue is empty
-
-console.log(PriorityQueue_example.front()) // this print front of the queue e.g Ram
-console.log(PriorityQueue_example.rear()) // this print rear of the queue e.g Rohit 
-console.log(PriorityQueue_example.dequeue()) // this print 'Ram'
-// in queue data structure, items are deleted from the front.
-
-
+pq.enqueue('Ram', 1)
+pq.enqueue('Mohit', 2)
+pq.enqueue('Rohit', 3)
+console.log(pq.printPQueue()) // -> "Ram Mohit Rohit "
+console.log(pq.dequeue()) // -> { element: 'Ram', priority: 1 }
 ```
+
+Notes:
+- Enqueue keeps elements ordered by priority (smaller number = higher priority).
+- Equal priorities preserve insertion order (FIFO among equals).
 
 ### Binary Search Tree
-Binary Search Tree is a node-based binary tree data structure which has the following properties:  
+A binary search tree (BST) stores values so that left < node < right. The implementation supports insert, remove, search and traversals.
 
-* The left subtree of a node contains only nodes with keys lesser than the node’s key.
+```javascript
+const { BinarySearchTree } = require('stl-javascript/nonLinear/binarySearchTree')
+const bst = new BinarySearchTree()
+bst.insert(15)
+bst.insert(10)
+bst.insert(20)
 
-* The right subtree of a node contains only nodes with keys greater than the node’s key.
-
-* The left and right subtree each must also be a binary search tree. 
-
-* There must be no duplicate Node
-
-```javascript 
-
-// create an object for the BinarySearchTree
-const {BinarySearchTree} = require('stl-javascript/nonLinear/binarySearchTree')
-var BST = new BinarySearchTree();
- 
-// Inserting nodes to the BinarySearchTree
-BST.insert(15);
-BST.insert(25);
-BST.insert(10);
-BST.insert(7);
-BST.insert(22);
-BST.insert(17);
-BST.insert(13);
-BST.insert(5);
-BST.insert(9);
-BST.insert(27);
-                         
-//          15
-//         /  \
-//        10   25
-//       / \   / \
-//      7  13 22  27
-//     / \    /
-//    5   9  17
- 
-var root = BST.getRootNode();
-             
-// prints 5 7 9 10 13 15 17 22 25 27
-BST.inorder(root);
-             
-// Removing node with no children
-BST.remove(5);
-             
-             
-//          15
-//         /  \
-//        10   25
-//       / \   / \
-//      7  13 22  27
-//       \    /
-//        9  17
-             
-                         
-var root = BST.getRootNode();
-             
-// prints 7 9 10 13 15 17 22 25 27
-BST.inorder(root);
-             
-// Removing node with one child
-BST.remove(7);
-             
-//          15
-//         /  \
-//        10   25
-//       / \   / \
-//      9  13 22  27
-//            /
-//           17
-             
-             
-var root = BST.getRootNode();
- 
-// prints 9 10 13 15 17 22 25 27
-BST.inorder(root);
-             
-// Removing node with two children
-BST.remove(15);
-     
-//          17
-//         /  \
-//        10   25
-//       / \   / \
-//      9  13 22  27
- 
-var root = BST.getRootNode();
-console.log("inorder traversal");
- 
-// prints 9 10 13 17 22 25 27
-BST.inorder(root);
-             
-console.log("postorder traversal");
-BST.postorder(root);
-console.log("preorder traversal");
-BST.preorder(root);
-
+const root = bst.getRootNode()
+console.log(bst.inorder(root))   // -> [10, 15, 20]
+console.log(bst.preorder(root))  // -> [15, 10, 20]
+console.log(bst.postorder(root)) // -> [10, 20, 15]
 ```
+
+Notes:
+- Duplicate values are not inserted.
+- `remove` handles leaf nodes, single-child nodes and two-child nodes using the in-order successor.
 
 ### Segment Tree
-Segment tree is a data structure that stores the information about an array in the form of tree, where each node of the tree represents a certain range of the array and carries the answer of that range. This allows one to answer range queries efficiently and at the same time, carry out faster modifications in the array. 
+A segment tree supports range-sum queries and point updates in O(log n).
 
-The root node of the segment tree represents the full range of the array whereas the leaf nodes represent individual elements. A node's left child represents the left half of that node's range whereas its right child represents the right half of the node's range. In this implementation of the segment tree, any node that represents a range `l` to `r` will carry the sum of the range `l` to `r`.
+```javascript
+const { SegmentTree } = require('stl-javascript/nonLinear/segmentTree')
+const arr = [15, 25, 10, 8, 22]
+const st = new SegmentTree(arr)
 
-The update function can be used to update the value at a particular index of the array. The query function can be used to obtain the sum of the range of all values from `start` index to `end` index, both included.
-
-```js
-const {SegmentTree} = require('stl-javascript/nonLinear/segmentTree')
-let arr = [15, 25, 10, 8, 22]
-let segmentTree = new SegmentTree(arr);
-// The segment tree generated for this array
-//          80
-//         /  \
-//        50   30
-//       / \   / \
-//      40 10 8  22
-//     / \    
-//    15  25
-
-// Printing the sum of the value from the index 1 to 3, n this case, it is 43
-console.log(segmentTree.query(1,3))
-
-// Updating the value at index 1, setting it to 52
-segmentTree.update(1,52)
-
-// Updated segment tree
-//          107
-//         /  \
-//        77   30
-//       / \   / \
-//      67 10 8  22
-//     / \    
-//    15  52
-
-// Printing the updated sum for the range 1 to 3, now the sum will be 70
-console.log(segmentTree.query(1,3))
+console.log(st.query(1, 3)) // -> 43 (25 + 10 + 8)
+st.update(1, 52)
+console.log(st.query(1, 3)) // -> 70 (52 + 10 + 8)
 ```
+
+Notes:
+- The constructor clones the input array internally; mutating the original array after construction will not affect the tree.
+- Queries outside the requested range return 0 for out-of-range segments.
 
 ## Application
 ### PostFix Conversion 
