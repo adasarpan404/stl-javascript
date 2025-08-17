@@ -1,5 +1,8 @@
 const { stack } = require('../index')
 
+// Import Node constructor for direct testing
+const { Node } = require('../linear/stack');
+
 test('underflow', () => {
     const stack_example = new stack();
     expect(stack_example.pop()).toBe('underflow');

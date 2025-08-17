@@ -87,25 +87,8 @@ test('printQueue after mixed operations', () => {
     queue_example.enqueue(4);
     expect(queue_example.printQueue()).toBe('2 3 4 ');
 })
-// Node class is not exported, so we test its behavior indirectly via queue internals.
-// However, for direct testing, let's temporarily access it via require if possible.
-let Node;
-try {
-    Node = require('../linear/queue').Node;
-} catch (e) {
-    // Node is not exported, skip direct Node tests.
-const { Node } = require('../linear/queue');
 
-describe('Node class', () => {
-    test('Node stores value and next is null by default', () => {
-        if (!Node) return; // skip if Node is not accessible
-        const node = new Node(42);
-        expect(node.value).toBe(42);
-        expect(node.next).toBeNull();
-    });
-
-    test('Node next can be set to another Node', () => {
-// Directly test Node class, which is exported from the queue module.
+// Direct Node tests using the exported Node constructor from linear/queue.js
 const { Node } = require('../linear/queue');
 
 describe('Node class', () => {
