@@ -1,7 +1,8 @@
-# stl-javascript ![NPM](https://img.shields.io/npm/l/stl-javascript) ![npm](https://img.shields.io/npm/dt/stl-javascript) ![npm](https://img.shields.io/npm/v/stl-javascript) 
+# stl-javascript ![NPM](https://img.shields.io/npm/l/stl-javascript) ![npm](https://img.shields.io/npm/dt/stl-javascript) ![npm](https://img.shields.io/npm/v/stl-javascript)
 
-stl-javascript is a javascript library that helps you to use common data structures like stack, queue, priority queue, and circular queue with out any headache. 
-Some of their use cases like binary number conversion, postfix evaluation
+stl-javascript is a concise, well-tested library of core data structures and algorithms for JavaScript — stacks, queues, priority queues, circular queues, segment trees, and binary search trees. It is designed for learning, teaching, and lightweight production use, with clear examples and comprehensive tests.
+
+Common use cases include binary number conversion and postfix expression evaluation.
 
 ## Installation
 
@@ -96,6 +97,12 @@ const root = bst.getRootNode()
 console.log(bst.inorder(root))   // -> [10, 15, 20]
 console.log(bst.preorder(root))  // -> [15, 10, 20]
 console.log(bst.postorder(root)) // -> [10, 20, 15]
+
+// Level-order and view helpers
+console.log(bst.levelOrder())    // -> [15, 10, 20]
+console.log(bst.leftView())      // -> [15, 10]
+console.log(bst.rightView())     // -> [15, 20]
+console.log(bst.topView())       // -> [10, 15, 20]  // leftmost -> rightmost horizontal distance
 ```
 
 Notes:
@@ -123,10 +130,10 @@ Notes:
 ### PostFix Conversion 
 
 use the following code to get the answer of postfix expression
-```javascript 
+```javascript
 const {postFixConversion} = require('stl-javascript/uses/postfixConversion')
-console.log(postFixConversion("235*+8-") //answer will be 9
-console.log(postFixConversion(23*+)) //it will return cannot perform postfix expression
+console.log(postFixConversion("235*+8-")) // -> 9
+console.log(postFixConversion("23*+")) // -> "Can't perform postfix evaluation"
 ```
 ## Contributing 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

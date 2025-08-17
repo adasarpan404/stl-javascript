@@ -1,33 +1,29 @@
 const { stack } = require('../index.js')
 
-function postFixEvaluation(exp) {
-    var s = new stack();
-    for (var i = 0; i < exp.length; i++) {
-        var c = exp[i];
-        if (!isNaN(c)) {
-            s.push(c - '0');
-        }
-        else {
-            var val1 = s.pop();
-            var val2 = s.pop();
-            if (val1 === "underflow" || val2 == "underflow") {
+function evaluatePostfix(expression) {
+    const s = new stack();
+    for (let i = 0; i < expression.length; i++) {
+        const token = expression[i];
+        if (!isNaN(token)) {
+            s.push(token - '0');
+        } else {
+            const operand1 = s.pop();
+            const operand2 = s.pop();
+            if (operand1 === "underflow" || operand2 === "underflow") {
                 return "Can't perform postfix evaluation";
             }
-            switch (c) {
+            switch (token) {
                 case '+':
-                    s.push(val2 + val1);
+                    s.push(operand2 + operand1);
                     break;
-
                 case '-':
-                    s.push(val2 - val1);
+                    s.push(operand2 - operand1);
                     break;
-
                 case '/':
-                    s.push(val2 / val1);
+                    s.push(operand2 / operand1);
                     break;
-
                 case '*':
-                    s.push(val2 * val1);
+                    s.push(operand2 * operand1);
                     break;
             }
         }
@@ -37,4 +33,4 @@ function postFixEvaluation(exp) {
     return result;
 }
 
-exports.postFixConversion = postFixEvaluation;
+exports.postFixConversion = evaluatePostfix;
