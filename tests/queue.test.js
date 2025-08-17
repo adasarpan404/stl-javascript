@@ -105,7 +105,17 @@ describe('Node class', () => {
     });
 
     test('Node next can be set to another Node', () => {
-        if (!Node) return;
+// Directly test Node class, which is exported from the queue module.
+const { Node } = require('../linear/queue');
+
+describe('Node class', () => {
+    test('Node stores value and next is null by default', () => {
+        const node = new Node(42);
+        expect(node.value).toBe(42);
+        expect(node.next).toBeNull();
+    });
+
+    test('Node next can be set to another Node', () => {
         const node1 = new Node('a');
         const node2 = new Node('b');
         node1.next = node2;
