@@ -203,3 +203,31 @@ test('BST remove node with only right child', () => {
     expect(BST.search(BST.getRootNode(), 20)).toBeNull();
     expect(BST.inorder(BST.getRootNode())).toStrictEqual([15, 25]);
 });
+
+test('BST view helpers: levelOrder, leftView, rightView, topView', () => {
+    const BST = new BinarySearchTree();
+    for (var i = 0; i < Array.length; i++) {
+        BST.insert(Array[i]);
+    }
+    const root = BST.getRootNode();
+    expect(BST.levelOrder(root)).toStrictEqual([15, 10, 25, 7, 13, 22, 27, 5, 9, 17]);
+    expect(BST.leftView(root)).toStrictEqual([15, 10, 7, 5]);
+    expect(BST.rightView(root)).toStrictEqual([15, 25, 27, 17]);
+    expect(BST.topView(root)).toStrictEqual([5, 7, 10, 15, 25, 27]);
+});
+
+test('BST view helpers on empty and single-node trees', () => {
+    const emptyBST = new BinarySearchTree();
+    expect(emptyBST.levelOrder(emptyBST.getRootNode())).toStrictEqual([]);
+    expect(emptyBST.leftView(emptyBST.getRootNode())).toStrictEqual([]);
+    expect(emptyBST.rightView(emptyBST.getRootNode())).toStrictEqual([]);
+    expect(emptyBST.topView(emptyBST.getRootNode())).toStrictEqual([]);
+
+    const single = new BinarySearchTree();
+    single.insert(42);
+    const root = single.getRootNode();
+    expect(single.levelOrder(root)).toStrictEqual([42]);
+    expect(single.leftView(root)).toStrictEqual([42]);
+    expect(single.rightView(root)).toStrictEqual([42]);
+    expect(single.topView(root)).toStrictEqual([42]);
+});
