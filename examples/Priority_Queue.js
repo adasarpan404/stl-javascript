@@ -1,4 +1,4 @@
-const { PriorityQueue } = require('../nonLinear/priorityQueue')
+const { PriorityQueue } = require('../nonLinear/priorityQueue');
 if (typeof PriorityQueue !== 'function') {
     console.error('PriorityQueue constructor not found. Check the require path.');
     process.exit(1);
