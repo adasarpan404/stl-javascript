@@ -26,7 +26,6 @@ test('BST search testing', () => {
     for (var i = 0; i < Array.length; i++) {
         BST.insert(Array[i])
     }
-    console.log(BST.search(BST.getRootNode(), 10))
     expect(BST.search(BST.getRootNode(), 10).data).toBe(10)
     expect(BST.search(BST.getRootNode(), 100)).toBeNull()
 
