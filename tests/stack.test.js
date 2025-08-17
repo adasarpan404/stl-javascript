@@ -1,5 +1,8 @@
 const { stack } = require('../index')
 
+// Import Node constructor for direct testing
+const { Node } = require('../linear/stack');
+
 test('underflow', () => {
     const stack_example = new stack();
     expect(stack_example.pop()).toBe('underflow');
@@ -148,4 +151,33 @@ test('large mixed operations group test', () => {
     expect(pops).toEqual(expectedPops);
     expect(stack_example.isEmpty()).toBe(true);
 })
+describe('Node class', () => {
+    // Node is now imported directly from the module
 
+    test('Node stores data correctly', () => {
+        const node = new Node(42);
+        expect(node.data).toBe(42);
+    });
+
+    test('Node next is initialized to null', () => {
+        const node = new Node('test');
+        expect(node.next).toBeNull();
+    });
+
+    test('Node can link to another node', () => {
+        const node1 = new Node(1);
+        const node2 = new Node(2);
+        node1.next = node2;
+        expect(node1.next).toBe(node2);
+        expect(node1.next.data).toBe(2);
+    });
+
+    test('Node supports storing any value type', () => {
+        const obj = { a: 1 };
+        const arr = [1, 2, 3];
+        expect(new Node(obj).data).toBe(obj);
+        expect(new Node(arr).data).toBe(arr);
+        expect(new Node(null).data).toBeNull();
+        expect(new Node(undefined).data).toBeUndefined();
+    });
+});

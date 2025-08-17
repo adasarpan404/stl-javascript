@@ -87,3 +87,34 @@ test('printQueue after mixed operations', () => {
     queue_example.enqueue(4);
     expect(queue_example.printQueue()).toBe('2 3 4 ');
 })
+
+// Direct Node tests using the exported Node constructor from linear/queue.js
+const { Node } = require('../linear/queue');
+
+describe('Node class', () => {
+    test('Node stores value and next is null by default', () => {
+        const node = new Node(42);
+        expect(node.value).toBe(42);
+        expect(node.next).toBeNull();
+    });
+
+    test('Node next can be set to another Node', () => {
+        const node1 = new Node('a');
+        const node2 = new Node('b');
+        node1.next = node2;
+        expect(node1.next).toBe(node2);
+        expect(node1.next.value).toBe('b');
+    });
+});
+
+// Indirect Node tests via queue
+test('queue uses Node to link elements', () => {
+    const queue_example = new queue();
+    queue_example.enqueue('x');
+    queue_example.enqueue('y');
+    // The head should have value 'x', and head.next should have value 'y'
+    expect(queue_example.head.value).toBe('x');
+    expect(queue_example.head.next.value).toBe('y');
+    expect(queue_example.tail.value).toBe('y');
+    expect(queue_example.tail.next).toBeNull();
+});
