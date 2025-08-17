@@ -1,52 +1,29 @@
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
-}
-
 class queue {
     constructor() {
-        this.head = null;
-        this.tail = null;
-        this.length = 0;
+        this.items = [];
     }
     enqueue(element) {
-        const node = new Node(element);
-        if (this.tail) {
-            this.tail.next = node;
-        } else {
-            this.head = node;
-        }
-        this.tail = node;
-        this.length++;
+        this.items.push(element)
     }
     dequeue() {
-        if (this.isEmpty())
-            return "underflow";
-        const value = this.head.value;
-        this.head = this.head.next;
-        if (!this.head) this.tail = null;
-        this.length--;
-        return value;
+        if (this.items.length === 0)
+            return "underflow"
+        return this.items.shift();
     }
     isEmpty() {
-        return this.length === 0;
+        return this.items.length === 0;
     }
     front() {
         if (this.isEmpty())
             return "No elements in Queue";
-        return this.head.value;
+        return this.items[0];
     }
     printQueue() {
-        let str = "";
-        let current = this.head;
-        while (current) {
-            str += current.value + " ";
-            current = current.next;
-        }
+        var str = "";
+        for (var i = 0; i < this.items.length; i++)
+            str += this.items[i] + " ";
         return str;
     }
 }
 
-module.exports = { queue, Node };
+module.exports = { queue };

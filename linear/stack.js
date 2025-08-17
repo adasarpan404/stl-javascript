@@ -1,55 +1,31 @@
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
 class stack {
     constructor() {
-        this.top = null;
-        this.size = 0;
+        this.items = []
     }
     push(element) {
-        const node = new Node(element);
-        node.next = this.top;
-        this.top = node;
-        this.size++;
+        this.items.push(element)
     }
     pop() {
-        if (this.top === null) {
-            return "underflow";
+        if (this.items.length === 0) {
+            return "underflow"
         }
-        const popped = this.top.data;
-        this.top = this.top.next;
-        this.size--;
-        return popped;
+        return this.items.pop()
     }
     peek() {
-        if (this.top === null) {
-            return 'No Elements';
+        if (this.items.length === 0) {
+            return 'No Elements'
         }
-        return this.top.data;
+        return this.items[this.items.length - 1]
     }
     printStack() {
-        const elements = [];
-        let current = this.top;
-        while (current) {
-            elements.push(String(current.data));
-            current = current.next;
-        }
-        elements.reverse();
-        return elements.length ? elements.join(' ') + ' ' : '';
+        var str = "";
+        for (var i = 0; i < this.items.length; i++)
+            str += this.items[i] + " ";
+        return str;
     }
     isEmpty() {
-        return this.top === null;
+        return this.items.length === 0;
     }
 }
 
-// Make the Node constructor discoverable via the prototype chain for legacy tests
-stack.prototype.constructor.prototype.constructor = Node;
-
-// Export Node directly for testing or other uses
-
-
-module.exports = { stack, Node };
+module.exports = { stack };
