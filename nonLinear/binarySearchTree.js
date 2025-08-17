@@ -92,6 +92,7 @@ BinarySearchTree.prototype.getRootNode = function () {
 };
 
 BinarySearchTree.prototype.levelOrder = function (node) {
+    node = node || this.root;
     if (!node) return [];
     var res = [];
     var q = [node];
@@ -105,6 +106,7 @@ BinarySearchTree.prototype.levelOrder = function (node) {
 };
 
 BinarySearchTree.prototype.leftView = function (node) {
+    node = node || this.root;
     if (!node) return [];
     var res = [];
     var q = [node];
@@ -121,6 +123,7 @@ BinarySearchTree.prototype.leftView = function (node) {
 };
 
 BinarySearchTree.prototype.rightView = function (node) {
+    node = node || this.root;
     if (!node) return [];
     var res = [];
     var q = [node];
@@ -137,6 +140,7 @@ BinarySearchTree.prototype.rightView = function (node) {
 };
 
 BinarySearchTree.prototype.topView = function (node) {
+    node = node || this.root;
     if (!node) return [];
     var map = {}; // hd -> node.data (first seen)
     var minHd = 0, maxHd = 0;
