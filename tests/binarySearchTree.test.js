@@ -182,3 +182,25 @@ test('BST right-skewed tree operations', () => {
     expect(BST.preorder(BST.getRootNode())).toStrictEqual([10, 20, 30, 40, 50]);
     expect(BST.postorder(BST.getRootNode())).toStrictEqual([50, 40, 30, 20, 10]);
 });
+
+test('BST remove node with only left child', () => {
+    const BST = new BinarySearchTree();
+    BST.insert(15);
+    BST.insert(10);
+    BST.insert(5); // 10 has only left child
+
+    BST.remove(10);
+    expect(BST.search(BST.getRootNode(), 10)).toBeNull();
+    expect(BST.inorder(BST.getRootNode())).toStrictEqual([5, 15]);
+});
+
+test('BST remove node with only right child', () => {
+    const BST = new BinarySearchTree();
+    BST.insert(15);
+    BST.insert(20);
+    BST.insert(25); // 20 has only right child
+
+    BST.remove(20);
+    expect(BST.search(BST.getRootNode(), 20)).toBeNull();
+    expect(BST.inorder(BST.getRootNode())).toStrictEqual([15, 25]);
+});
