@@ -94,7 +94,7 @@ try {
     Node = require('../linear/queue').Node;
 } catch (e) {
     // Node is not exported, skip direct Node tests.
-}
+const { Node } = require('../linear/queue');
 
 describe('Node class', () => {
     test('Node stores value and next is null by default', () => {
