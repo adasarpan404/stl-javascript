@@ -96,6 +96,12 @@ const root = bst.getRootNode()
 console.log(bst.inorder(root))   // -> [10, 15, 20]
 console.log(bst.preorder(root))  // -> [15, 10, 20]
 console.log(bst.postorder(root)) // -> [10, 20, 15]
+
+// Level-order and view helpers
+console.log(bst.levelOrder())    // -> [15, 10, 20]
+console.log(bst.leftView())      // -> [15, 10]
+console.log(bst.rightView())     // -> [15, 20]
+console.log(bst.topView())       // -> [10, 15, 20]  // leftmost -> rightmost horizontal distance
 ```
 
 Notes:
@@ -123,10 +129,10 @@ Notes:
 ### PostFix Conversion 
 
 use the following code to get the answer of postfix expression
-```javascript 
+```javascript
 const {postFixConversion} = require('stl-javascript/uses/postfixConversion')
-console.log(postFixConversion("235*+8-") //answer will be 9
-console.log(postFixConversion(23*+)) //it will return cannot perform postfix expression
+console.log(postFixConversion("235*+8-")) // -> 9
+console.log(postFixConversion("23*+")) // -> "Can't perform postfix evaluation"
 ```
 ## Contributing 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
