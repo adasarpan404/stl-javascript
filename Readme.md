@@ -1,7 +1,8 @@
-# stl-javascript ![NPM](https://img.shields.io/npm/l/stl-javascript) ![npm](https://img.shields.io/npm/dt/stl-javascript) ![npm](https://img.shields.io/npm/v/stl-javascript) 
+# stl-javascript ![NPM](https://img.shields.io/npm/l/stl-javascript) ![npm](https://img.shields.io/npm/dt/stl-javascript) ![npm](https://img.shields.io/npm/v/stl-javascript)
 
-stl-javascript is a javascript library that helps you to use common data structures like stack, queue, priority queue, and circular queue with out any headache. 
-Some of their use cases like binary number conversion, postfix evaluation
+stl-javascript is a concise, well-tested library of core data structures and algorithms for JavaScript — stacks, queues, priority queues, circular queues, segment trees, and binary search trees. It is designed for learning, teaching, and lightweight production use, with clear examples and comprehensive tests.
+
+Common use cases include binary number conversion and postfix expression evaluation.
 
 ## Installation
 
