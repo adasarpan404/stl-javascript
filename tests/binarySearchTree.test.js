@@ -231,3 +231,45 @@ test('BST view helpers on empty and single-node trees', () => {
     expect(single.rightView(root)).toStrictEqual([42]);
     expect(single.topView(root)).toStrictEqual([42]);
 });
+
+test('BST topView preserves top-most node when lower-level node shares same horizontal distance', () => {
+    const BST = new BinarySearchTree();
+    // root at hd 0
+    BST.insert(10);
+    // right child at hd +1
+    BST.insert(20);
+    // this node will have hd 0 (right-left), seen after root in BFS
+    BST.insert(15);
+    const root = BST.getRootNode();
+    // top view should show root(10) at hd 0 and 20 at hd +1
+    expect(BST.topView(root)).toStrictEqual([10, 20]);
+});
+
+test('BST topView on left-skewed tree', () => {
+    const BST = new BinarySearchTree();
+    const values = [5, 4, 3, 2, 1];
+    values.forEach(v => BST.insert(v));
+    const root = BST.getRootNode();
+    expect(BST.topView(root)).toStrictEqual([1, 2, 3, 4, 5]);
+});
+
+test('BST topView on right-skewed tree', () => {
+    const BST = new BinarySearchTree();
+    const values = [1, 2, 3, 4, 5];
+    values.forEach(v => BST.insert(v));
+    const root = BST.getRootNode();
+    expect(BST.topView(root)).toStrictEqual([1, 2, 3, 4, 5]);
+});
+
+test('BST views with duplicate values (ensure stable ordering)', () => {
+    const BST = new BinarySearchTree();
+    BST.insert(10);
+    BST.insert(10);
+    BST.insert(10);
+    const root = BST.getRootNode();
+    expect(BST.levelOrder(root)).toStrictEqual([10, 10, 10]);
+    // In this implementation duplicates are inserted to the right, producing a right-skewed tree
+    expect(BST.leftView(root)).toStrictEqual([10, 10, 10]);
+    expect(BST.rightView(root)).toStrictEqual([10, 10, 10]);
+    expect(BST.topView(root)).toStrictEqual([10, 10, 10]);
+});

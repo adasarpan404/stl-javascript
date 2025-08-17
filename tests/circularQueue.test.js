@@ -72,3 +72,22 @@ test('circular queue empty behavior for Front, Rear and deQueue', () => {
     expect(q.isEmpty()).toBe(true);
 });
 
+test('circular queue Front chooses wrapped storage when start2 index is undefined', () => {
+    const q = new CircularQueue(3);
+    // Fill primary buffer
+    expect(q.enQueue(1)).toBe(true);
+    expect(q.enQueue(2)).toBe(true);
+    expect(q.enQueue(3)).toBe(true);
+
+    // Remove all from start2 so start2 becomes 3 (beyond initial area)
+    expect(q.deQueue()).toBe(true);
+    expect(q.deQueue()).toBe(true);
+    expect(q.deQueue()).toBe(true);
+
+    // Now enqueue into wrapped storage (end1 path)
+    expect(q.enQueue(4)).toBe(true);
+
+    // queue[start2] is undefined (out of initial area), so Front() should return queue[start1]
+    expect(q.Front()).toBe(4);
+});
+
