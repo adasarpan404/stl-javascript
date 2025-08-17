@@ -49,4 +49,7 @@ class stack {
 // Make the Node constructor discoverable via the prototype chain for legacy tests
 stack.prototype.constructor.prototype.constructor = Node;
 
-module.exports = { stack };
+// Export Node directly for testing or other uses
+
+
+module.exports = { stack, Node };
