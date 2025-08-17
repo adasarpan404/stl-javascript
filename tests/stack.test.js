@@ -149,7 +149,7 @@ test('large mixed operations group test', () => {
     expect(stack_example.isEmpty()).toBe(true);
 })
 describe('Node class', () => {
-    const Node = Object.getPrototypeOf(new stack()).constructor.prototype.constructor; // Get Node from stack.js indirectly
+    // Node is now imported directly from the module
 
     test('Node stores data correctly', () => {
         const node = new Node(42);
